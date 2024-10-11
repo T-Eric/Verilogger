@@ -91,7 +91,7 @@ module FloatAdder (
               sz <= sy;
               nextState <= over;
             end else begin
-              nextState<=alignExp;
+              nextState <= alignExp;
             end
           end
         end
@@ -138,17 +138,17 @@ module FloatAdder (
       over: begin
         z <= {sz, ez, mz[22:0]};
         // overflow?
-        if(ez==8'd255)begin
-          overflow<=2'b01;
-        end else if(ez==8'd0&&mz[22:0]!=23'b0) begin
-          overflow<=2'b10;
+        if (ez == 8'd255) begin
+          overflow <= 2'b01;
+        end else if (ez == 8'd0 && mz[22:0] != 23'b0) begin
+          overflow <= 2'b10;
         end else begin
-          overflow<=2'b00;
+          overflow <= 2'b00;
         end
       end
 
-      default:begin
-        nextState<=init;
+      default: begin
+        nextState <= init;
       end
     endcase
   end
